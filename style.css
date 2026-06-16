@@ -67,6 +67,18 @@ nav ul {
     padding: 1rem;
 }
 
+/* Active Navigation State */
+nav ul li a.active {
+    color: #ffffff;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.2rem;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* 6. Hero Section */
 #hero {
     text-align: center;
@@ -119,16 +131,4 @@ footer {
     color: var(--text-secondary);
     font-size: 0.9rem;
     border-top: 1px solid var(--border-color);
-}
-
-/* Active Navigation State */
-nav ul li a.active {
-    color: #ffffff;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.2rem;
-}
-
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
 }

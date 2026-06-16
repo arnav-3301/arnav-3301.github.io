@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arnav Bodigepally | Software Engineer</title>
-    <!-- We will link our CSS file here in Step 2 -->
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Sitelong Navigation -->
     <header>
         <nav>
             <ul>
@@ -21,7 +19,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <main>
         <section id="hero">
             <h1>Arnav Bodigepally</h1>
@@ -29,7 +26,6 @@
             <a href="#projects">View My Work</a>
         </section>
 
-        <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
             <p>
@@ -37,10 +33,10 @@
 </p>
         </section>
 
-        <!-- Technical Projects -->
-        <section id="projects">
-            <h2>Selected Projects</h2>
-            <article class="project">
+       <section id="projects">
+    <h2>Selected Projects</h2>
+    
+    <article class="project">
         <h3>Terminal Text Editor</h3>
         <p><strong>Tech Stack:</strong> C, POSIX APIs</p>
         <ul>
@@ -51,10 +47,20 @@
         <br>
         <a href="https://github.com/arnav-3301/kilo-editor" target="_blank">Source Code</a>
     </article>
-        </section>
 
-        <!-- Competitive Programming & Links -->
-        <section id="profiles">
+    <article class="project">
+    <h3>0x88 Chess Engine</h3>
+    <p><strong>Tech Stack:</strong> C++, Raylib (GUI), SIMD Intrinsics</p>
+    <ul>
+        <li><strong>Architecture:</strong> Developed a high-performance engine utilizing the <em>0x88 board representation</em> for efficient square indexing and boundary checking.</li>
+                        <li><strong>Core Optimization:</strong> Implemented branchless move generation and <code>O(1)</code> dynamic King tracking to minimize pipeline stalls during deep search.</li>
+        <li><strong>Search Performance:</strong> Integrated hardware-accelerated Minimax with SIMD-optimized state snapshotting for rapid board evaluation.</li>
+        <li><strong>System Features:</strong> Engineered a headless mode for bot-vs-bot benchmarking alongside a custom Raylib-based interface.</li>
+    </ul>
+    <br>
+    <a href="https://github.com/arnav-3301/0x88-Chess-Engine" target="_blank">Source Code</a>
+</article>
+</section>        <section id="profiles">
             <h2>Technical Profiles</h2>
             <ul>
     <li><strong>GitHub:</strong> <a href="https://github.com/arnav-3301" target="_blank">arnav-3301</a></li>
@@ -63,7 +69,6 @@
 </ul>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <h2>Get In Touch</h2>
             <p>Currently open for summer technical internships.</p>
