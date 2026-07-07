@@ -20,6 +20,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     line-height: 1.6;
+    font-size: 1.125rem; /* Increased base font size */
 }
 
 /* 3. Typography & Links */
@@ -41,8 +42,9 @@ a:hover {
 
 /* 4. Layout Structure */
 main {
-    max-width: 900px; /* Constrains line length for readability */
-    margin: 0 auto;
+    width: 90%; /* Takes up 90% of the screen width */
+    max-width: 1400px; /* Increased massively so it stretches out on wide monitors */
+    margin: 0 auto; /* Keeps the whole block centered on the screen */
     padding: 2rem;
 }
 
@@ -57,6 +59,7 @@ header {
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
+    z-index: 100; /* Added to ensure header stays above hovering elements */
 }
 
 nav ul {
@@ -81,37 +84,108 @@ html {
 
 /* 6. Hero Section */
 #hero {
-    text-align: center;
+    text-align: left; /* Changed from center to left */
     margin-top: 4rem;
 }
 
 #hero p {
     color: var(--text-secondary);
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Increased from 1.2rem */
     margin-bottom: 1.5rem;
 }
 
-/* 7. Projects Grid (CSS Grid) */
 #projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Widened minmax from 300px to 450px */
+    gap: 2rem; /* Increased gap slightly for better spacing with wider cards */
 }
 
 #projects h2 {
-    grid-column: 1 / -1; /* Makes the heading span all columns */
+    grid-column: 1 / -1; 
 }
 
+/* 1. Base Project Card */
 .project {
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color); 
     border-radius: 8px;
     padding: 1.5rem;
+    position: relative;
+    
+    /* Smooth scaling for both hover and mouse-leave */
+    transition: transform 0.4s ease; 
 }
 
 .project p {
     margin-bottom: 1rem;
     color: var(--text-secondary);
+}
+
+/* 2. Setup hidden borders for the snake animation */
+.project::before,
+.project::after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    border-radius: 8px; 
+    border: 2px solid transparent;
+    pointer-events: none; /* Prevents border from interfering with hover state */
+}
+
+/* 3. Top and Right borders */
+.project::before {
+    top: -1px; 
+    left: -1px;
+    border-top-color: #00ff00;
+    border-right-color: #00ff00;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    
+    /* On mouse leave: smoothly fade out over 0.4s, then instantly reset width/height to 0 */
+    transition: opacity 0.4s ease, width 0s 0.4s, height 0s 0.4s;
+}
+
+/* 4. Bottom and Left borders */
+.project::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom-color: #00ff00;
+    border-left-color: #00ff00;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    
+    /* Same reset logic on mouse leave */
+    transition: opacity 0.4s ease, width 0s 0.4s, height 0s 0.4s;
+}
+
+/* 5. Hover Triggers */
+.project:hover {
+    transform: scale(1.03); /* Card smoothly enlarges */
+    z-index: 10; /* Ensures the scaled card overlaps adjacent items cleanly */
+}
+
+.project:hover::before {
+    opacity: 1;
+    width: calc(100% + 2px); 
+    height: calc(100% + 2px);
+    /* Draw Top (width) in 0.3s, then draw Right (height) in 0.3s */
+    transition: 
+        opacity 0.1s ease,
+        width 0.3s linear 0.1s, 
+        height 0.3s linear 0.4s;
+}
+
+.project:hover::after {
+    opacity: 1;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    /* Wait 0.7s for ::before to finish, then draw Bottom (width), then Left (height) */
+    transition: 
+        opacity 0s 0.7s, 
+        width 0.3s linear 0.7s, 
+        height 0.3s linear 1.0s;
 }
 
 /* 8. Lists (For Profiles) */

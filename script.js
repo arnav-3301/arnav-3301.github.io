@@ -26,4 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    const animatedElements = document.querySelectorAll('.project');
+    
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            } else {
+                // Optional: Remove class if you want it to shrink when scrolled out of view
+                entry.target.classList.remove('in-view'); 
+            }
+        });
+    }, { 
+        root: null, 
+        threshold: 0.6 // Triggers when 60% of the element is visible
+    });
+
+    animatedElements.forEach(el => {
+        animationObserver.observe(el);
+    });
 });
