@@ -37,13 +37,15 @@
     <h2>Selected Projects</h2>
     
     <article class="project">
-        <h3>Terminal Text Editor</h3>
-        <p><strong>Tech Stack:</strong> C, POSIX APIs</p>
-        <ul>
-            <li>Engineered a lightweight, dependency-free command-line text editor from scratch.</li>
-            <li>Implemented terminal raw mode to handle low-level byte-by-byte input operations.</li>
-            <li>Managed dynamic text buffers and utilized ANSI escape sequences for direct terminal rendering and cursor control.</li>
-        </ul>
+    <h3>Kilo Text Editor</h3>
+    <p><strong>Tech Stack:</strong> C, POSIX API (termios), GNU Make</p>
+    <p>A minimalist, dependency-free terminal text editor built from scratch in C to explore low-level POSIX terminal control, raw mode state management, and custom memory buffering.</p>
+    <ul>
+        <li><strong>Terminal Management:</strong> Interfaced directly with the <code>termios</code> structure to transition the terminal into Raw Mode, safely parsing raw byte input and overriding default signal processing.</li>
+        <li><strong>Rendering Optimization:</strong> Engineered a dynamic append buffer to consolidate ANSI escape sequences and text updates into a single atomic <code>write()</code> call, eliminating terminal screen flicker.</li>
+        <li><strong>Syntax Engine:</strong> Implemented a state-driven syntax highlighting system with dynamic filetype detection, tracking byte-level text properties and multi-line comment states across render cycles.</li>
+        <li><strong>Interactive Systems:</strong> Built a callback-driven prompt system supporting safe file I/O operations and an incremental search engine with real-time visual highlighting and traversal.</li>
+    </ul>
         <br>
         <a href="https://github.com/arnav-3301/kilo-editor" target="_blank">Source Code</a>
     </article>
