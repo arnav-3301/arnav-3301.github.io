@@ -50,12 +50,13 @@
 
     <article class="project">
     <h3>0x88 Chess Engine</h3>
-    <p><strong>Tech Stack:</strong> C++, Raylib (GUI), SIMD Intrinsics</p>
+    <p><strong>Tech Stack:</strong> C++, Raylib, POSIX API</p>
+    <p>A high-performance, single-threaded C++ chess engine featuring a decoupled MVC architecture that separates core board physics from a fully interactive graphical application suite.</p>
     <ul>
-        <li><strong>Architecture:</strong> Developed a high-performance engine utilizing the <em>0x88 board representation</em> for efficient square indexing and boundary checking.</li>
-                        <li><strong>Core Optimization:</strong> Implemented branchless move generation and <code>O(1)</code> dynamic King tracking to minimize pipeline stalls during deep search.</li>
-        <li><strong>Search Performance:</strong> Integrated hardware-accelerated Minimax with SIMD-optimized state snapshotting for rapid board evaluation.</li>
-        <li><strong>System Features:</strong> Engineered a headless mode for bot-vs-bot benchmarking alongside a custom Raylib-based interface.</li>
+        <li><strong>AI & Search Engine:</strong> Developed a Minimax AI utilizing Alpha-Beta Pruning, MVV-LVA move ordering, and Zobrist Hashing (Transposition Tables) to achieve 14+ Million nodes per second.</li>
+        <li><strong>0x88 Architecture:</strong> Engineered lightning-fast pseudo-legal and strict legal move generation, mathematically verified against a 3.19 billion node Perft benchmark.</li>
+        <li><strong>System Integration:</strong> Built a native Linux application hub utilizing POSIX <code>fork()</code> and <code>execl()</code> for seamless process replacement between visual gameplay and headless arena targets.</li>
+        <li><strong>State Management:</strong> Implemented <code>O(1)</code> Threefold Repetition detection and a randomized Opening Book library to eliminate deterministic engine loops.</li>
     </ul>
     <br>
     <a href="https://github.com/arnav-3301/0x88-Chess-Engine" target="_blank">Source Code</a>
